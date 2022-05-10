@@ -14,4 +14,6 @@ class TodoForm(FlaskForm):
 
 @app.route('/', methods=["GET", "POST"])
 def index():
+  if 'todo' in request.form:
+    todos.append(request.form["todo"])
   return render_template("index.html", todos=todos, template_form=TodoForm())
