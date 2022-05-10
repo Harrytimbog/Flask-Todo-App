@@ -6,6 +6,9 @@
   <title>Document</title>
 </head>
 <body>
-  Todos
+  <h1>Todos</h1>
+  {% for todo in todos %}
+    <li>{{ todo }}</li>
+  {% endfor %}
 </body>
 </html>
