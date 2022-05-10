@@ -10,5 +10,12 @@
   {% for todo in todos %}
     <li>{{ todo }}</li>
   {% endfor %}
+
+  <form method="POST">
+    {{ template_form.hidden_tag() }}
+    <p>{{ template_form.todo.label }}</p>
+    <p>{{ template_form.todo() }}</p>
+    <p>{{ template_form.submit() }}</p>
+  </form>
 </body>
 </html>
