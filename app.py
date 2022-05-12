@@ -1,10 +1,14 @@
 from flask import Flask, render_template, request
 from flask_wtf import FlaskForm 
 from wtforms import StringField, SubmitField
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'mysecret'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///myDB.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
 todos = ["Learn Flask", "Set up venv", "Build cool app"]
 
