@@ -2,11 +2,12 @@ from flask import Flask, render_template, request
 from flask_wtf import FlaskForm 
 from wtforms import StringField, SubmitField
 from flask_sqlalchemy import SQLAlchemy
+from os import environ
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'mysecret'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///myDB.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DATABASE_URL') or 'sqlite:///myDB.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
